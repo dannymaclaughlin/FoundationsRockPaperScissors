@@ -1,8 +1,8 @@
-const words = ['rock', 'paper', 'scissors'];
-const word = words[Math.floor(Math.random()*words.length)];
+const choices = ['rock', 'paper', 'scissors'];
 
 function computerPlay() {
-    return word;
+    const choice = choices[Math.floor(Math.random() * (choices.length))];
+    return choice;
 } 
 
 //create a function called computerPlay                           
