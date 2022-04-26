@@ -1,28 +1,29 @@
 const choices = ['rock', 'paper', 'scissors'];
 
-//create a function called computerPlay
-
-//function should return: rock, paper, or scissors. choices variable should live outside of the function in the main
-//scope so that it can be called outside of the function
 function computerPlay() {
     const choice = choices[Math.floor(Math.random() * (choices.length))];
     return choice;
 } 
-                         
-function playRound(playerSelection, computerSelection) {
-    if (computerSelection() === 'rock') {
-    return 'You Loser! Rock beats Scissors';
-    } else if (computerSelection() === 'paper') {
-    return 'You Loser! Paper beats Rock';
-    } else if (computerSelection() === 'scissors') {
-    return 'You Loser! Scissors beats paper'
-    }
-} 
 
-const playerSelection = "rock";
-function computerSelection() {
-    if computerSelection === computerPlay();
+function playRound(playerSelection, computerSelection) {
+    if (computerPlay = 'paper' && playerSelection === 'rock') {
+        return 'you lose, paper beats rock!'
+    } else if (computerPlay = 'scissors' && playerSelection === 'paper') {
+        return 'you lose, scissors beats paper!'
+    } else if (computerPlay = 'rock' && playerSelection === 'scissors') {
+        return 'you lose, rock beats scissors!'
+    } else if (computerPlay = 'rock' && playerSelection === 'paper') {
+        return 'you win, paper beats rock!'
+    } else if (computerPlay = 'paper' && playerSelection === 'scissors') {
+        return 'you win, scissors beats paper!'
+    } else if (computerPlay = 'scissors' && playerSelection === 'rock') {
+        return 'you win, rock beats scissors!'
+    }
 }
+
+const playerSelection = 'paper';
+const computerSelection = computerPlay();
+
 //create new function to play a single round of rock paper scissors: playRound
 //playRound should take two parameters - playerSelection and computerSelection
 //return string that declares winner of the round like "you lose! paper beats rock"
