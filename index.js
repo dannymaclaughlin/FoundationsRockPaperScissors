@@ -1,28 +1,34 @@
 const choices = ['rock', 'paper', 'scissors'];
 
 function computerPlay() {
-    const choice = choices[Math.floor(Math.random() * (choices.length))];
-    return choice;
+    return choices[~~(Math.random() * choices.length)]
 } 
 
+let playerSelection = prompt('rock, paper, or scissors?');
+let computerSelection = computerPlay();
+
 function playRound(playerSelection, computerSelection) {
-    if (computerPlay = 'paper' && playerSelection === 'rock') {
-        return 'you lose, paper beats rock!'
-    } else if (computerPlay = 'scissors' && playerSelection === 'paper') {
-        return 'you lose, scissors beats paper!'
-    } else if (computerPlay = 'rock' && playerSelection === 'scissors') {
-        return 'you lose, rock beats scissors!'
-    } else if (computerPlay = 'rock' && playerSelection === 'paper') {
-        return 'you win, paper beats rock!'
-    } else if (computerPlay = 'paper' && playerSelection === 'scissors') {
-        return 'you win, scissors beats paper!'
-    } else if (computerPlay = 'scissors' && playerSelection === 'rock') {
-        return 'you win, rock beats scissors!'
+    playerSelection = playerSelection;
+    computerSelection = computerPlay();
+
+    if (playerSelection === computerSelection) {
+        return 'you tied';
+    } else if (computerSelection = 'paper' && playerSelection === 'rock') {
+        return 'you lose, paper beats rock!';
+    } else if (computerSelection = 'scissors' && playerSelection === 'paper') {
+        return 'you lose, scissors beats paper!';
+    } else if (computerSelection = 'rock' && playerSelection === 'scissors') {
+        return 'you lose, rock beats scissors!';
+    } else if (computerSelection = 'rock' && playerSelection === 'paper') {
+        return 'you win, paper beats rock!';
+    } else if (computerSelection = 'paper' && playerSelection === 'scissors') {
+        return 'you win, scissors beats paper!';
+    } else if (computerSelection = 'scissors' && playerSelection === 'rock') {
+        return 'you win, rock beats scissors!';
     }
 }
 
-const playerSelection = 'paper';
-const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
 
 //create new function to play a single round of rock paper scissors: playRound
 //playRound should take two parameters - playerSelection and computerSelection
