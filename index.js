@@ -1,16 +1,23 @@
+// DECLARES THE CHOICES FOR ANSWERS, PLAYER SCORE, COMPUTER SCORE, AND SETS BOTH SCORES TO 0.
 const choices = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
 
+// FUNCTION TO RANDOMIZE THE ANSWER FOR computerSelection.
 function computerPlay() {
     return choices[~~(Math.random() * choices.length)]
 } 
 
+// DECLARES VARIABLE FOR BUTTONTEXT, PLAYER SELECTION, AND COMPUTER SELECTION IN THE GLOBAL SCOPE.
+let buttonText = '';
 let playerSelection = '';
 let computerSelection = computerPlay();
 
+// FUNCTION THAT PLAYS A ROUND, CHECKS ANSWERS TO SEE WHO WON THE ROUND, AND RETURNS A MESSAGE-
+// -STATING WHO WON THE ROUND.
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt('rock, paper, or scissors?').toLowerCase();
+    // playerSelection = prompt('rock, paper, or scissors?').toLowerCase();
+    playerSelection = buttonText;
     computerSelection = computerPlay();
 
     if (playerSelection === computerSelection) {
@@ -38,21 +45,39 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    console.log(playRound(playerSelection, computerSelection));
-    if (playerScore < 5 && computerScore < 5) {
-        game();
-     } else {
-         endGame();
-     }
-}
+const buttons = document.querySelectorAll('button');
 
-function endGame() {
-    if (playerScore > computerScore) {
-    console.log('you win! (:') 
-    } else if (computerScore > playerScore) {
-    console.log('you lose! ):');
-    }
-}
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let buttonText = button.textContent;
+        console.log(buttonText);
+    })
+})
 
-game();
+// LOGIC THAT PLAYS 5 ROUNDS OF THE GAME
+// function game() {
+//     console.log(playRound(playerSelection, computerSelection));
+//     if (playerScore < 5 && computerScore < 5) {
+//         game();
+//      } else {
+//          endGame();
+//      }
+// }
+
+
+// FUNCTION THAT ENDS THE GAME AND DECLARES THE WINNER
+// function endGame() {
+//     if (playerScore > computerScore) {
+//     console.log('you win! (:') 
+//     } else if (computerScore > playerScore) {
+//     console.log('you lose! ):');
+//     }
+// }
+
+// console.log(buttonText);
+
+playRound(playerSelection, computerSelection);
+console.log(playRound(playerSelection, computerSelection));
+
+// CALLS THE FUNCTION TO PLAY THE GAME
+// game();
