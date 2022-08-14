@@ -1,15 +1,22 @@
+// DECLARES A VARIABLE NAMED 'CHOICES' AND ASSIGNS 'ROCK' 'PAPER' & 'SCISSORS' TO IT
 const choices = ['rock', 'paper', 'scissors'];
+// DECLARES VARIABLES NAMED 'PLAYERSCORE' & 'COMPUTERSCORE' THEN SETS THEIR VALUES TO 0
 let playerScore = 0;
 let computerScore = 0;
 
+// CREATES A FUNCTION TO RANDOMIZE THE COMPUTER SELECTION BASED OFF OF THE CHOICES VARIABLE
 function computerPlay() {
     return choices[~~(Math.random() * choices.length)]
 } 
 
+// DECLARES VARIABLES FOR BUTTONTEXT, PLAYERSELECTION, & COMPUTERSELECTION.
+// SETS BUTTONTEXT & PLAYERSELECTION'S VALUE TO AN EMPTY STRING
+// ASSIGNS COMPUTERPLAY FUNCTION TO COMPUTERSELECTION VARIABLE
 let buttonText = '';
 let playerSelection = '';
 let computerSelection = computerPlay();
 
+// CREATES A FUNCTION TO COMPARE THE PLAYER AND COMPUTERS SELECTION AND RETURNS WHO WON THE ROUND
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return 'you tied';
@@ -36,19 +43,26 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+// DECLARES A VARIABLE FOR BUTTONS
+// ASSIGNS DOCUMENT.QUERYSELECTORALL THAT SELECTS ALL BUTTONS AND ASSIGNS IT TO BUTTONS VARIABLE
 const buttons = document.querySelectorAll('button');
 
+// ADDS EVENTLISTENER TO BUTTONS VARIABLE THAT LISTENS FOR A CLICK
+// MOVED THE BUTTONTEXT, PLAYERSELECTION, AN COMPUTERSELECTION ASSIGNMENT INTO THE EVENTLISTENER-
+// -FUNCTION ASWELL AS THE PLAYROUND FUNCTION SO THAT IT ONLY PLAYS A ROUND AFTER THE BUTTON IS-
+// -CLICKED.
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let buttonText = button.textContent;
         let playerSelection = buttonText;
         let computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
-        // console.log(buttonText);
-        game()
+        game();
     })
 })
 
+// FUNCTION TO PLAY A ROUND UNTIL THE PLAYER OR COMPUTER HAS 5 WINS, THEN CALLS FOR THE ENDGAME-
+// -FUNCTION ONCE THE PLAYER OR COMPUTER HAS HIT 5 WINS
 function game() {
     playRound(playerSelection, computerSelection);
     if (playerScore < 5 && computerScore < 5) {
@@ -58,6 +72,7 @@ function game() {
      }
 }
 
+// FUNCTION THAT STATES WHETHER YOU WON OR LOST THE GAME
 function endGame() {
     if (playerScore > computerScore) {
     console.log('you win! (:') 
