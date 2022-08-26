@@ -1,3 +1,32 @@
+/* * {
+    border: 2px solid red;
+} */
+
 html {
-    background: gray;
+    background: lightgrey;
+    font-family: helvetica, arial, sans-serif;
+    color: black;
 }
+
+.header {
+    text-align: center;
+    /* border: 2px solid red; */
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.buttons {
+    padding: 5px;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    column-gap: 15px;
+}
+

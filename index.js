@@ -1,84 +1,72 @@
-// DECLARES A VARIABLE NAMED 'CHOICES' AND ASSIGNS 'ROCK' 'PAPER' & 'SCISSORS' TO IT
 const choices = ['rock', 'paper', 'scissors'];
-// DECLARES VARIABLES NAMED 'PLAYERSCORE' & 'COMPUTERSCORE' THEN SETS THEIR VALUES TO 0
 let playerScore = 0;
 let computerScore = 0;
+let buttonText = '';
+let playerSelection = '';
+let computerSelection = computerPlay();
+let roundResult = '';
 
-// CREATES A FUNCTION TO RANDOMIZE THE COMPUTER SELECTION BASED OFF OF THE CHOICES VARIABLE
 function computerPlay() {
     return choices[~~(Math.random() * choices.length)]
 } 
 
-// DECLARES VARIABLES FOR BUTTONTEXT, PLAYERSELECTION, & COMPUTERSELECTION.
-// SETS BUTTONTEXT & PLAYERSELECTION'S VALUE TO AN EMPTY STRING
-// ASSIGNS COMPUTERPLAY FUNCTION TO COMPUTERSELECTION VARIABLE
-let buttonText = '';
-let playerSelection = '';
-let computerSelection = computerPlay();
-
-// CREATES A FUNCTION TO COMPARE THE PLAYER AND COMPUTERS SELECTION AND RETURNS WHO WON THE ROUND
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return 'you tied';
     } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-        computerScore++;
-        return 'you lose, paper beats rock! ):';
+        computerScore += 1;
+        return 'you lose! you chose rock, the computer chose paper.';
     } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
-        computerScore++;
-        return 'you lose, scissors beats paper! ):';
+        computerScore += 1;
+        return 'you lose! you chose paper, the computer chose scissors.';
     } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
-        computerScore++;
-        return 'you lose, rock beats scissors! ):';
+        computerScore += 1;
+        return 'you lose! you chose scissors, the computer chose rock.';
     } else if (computerSelection === 'rock' && playerSelection === 'paper') {
-        playerScore++;
-        return 'you win, paper beats rock! (:';
+        playerScore += 1;
+        return 'you win! you chose paper, the computer chose rock.';
     } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
-        playerScore++;
-        return 'you win, scissors beats paper! (:';
+        playerScore += 1;
+        return 'you win! you chose scissors, the computer chose paper.';
     } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
-        playerScore++;
-        return 'you win, rock beats scissors! (:';
+        playerScore += 1;
+        return 'you win! you chose rock, the computer chose scissors.';
     } else {
         return 'that\'s not an acceptable answer!'
     }
 }
 
-// DECLARES A VARIABLE FOR BUTTONS
-// ASSIGNS DOCUMENT.QUERYSELECTORALL THAT SELECTS ALL BUTTONS AND ASSIGNS IT TO BUTTONS VARIABLE
 const buttons = document.querySelectorAll('button');
 
-// ADDS EVENTLISTENER TO BUTTONS VARIABLE THAT LISTENS FOR A CLICK
-// MOVED THE BUTTONTEXT, PLAYERSELECTION, AN COMPUTERSELECTION ASSIGNMENT INTO THE EVENTLISTENER-
-// -FUNCTION ASWELL AS THE PLAYROUND FUNCTION SO THAT IT ONLY PLAYS A ROUND AFTER THE BUTTON IS-
-// -CLICKED.
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let buttonText = button.textContent;
         let playerSelection = buttonText;
         let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-        game();
+
+        const results = document.getElementById('results');
+        const resultsContent = document.createElement('div');
+        resultsContent.classList.add('resultsSummary');
+        resultsContent.textContent = playRound(playerSelection, computerSelection);
+        results.appendChild(resultsContent);
+
+        const score = document.getElementById('score');
+        document.getElementById('score').innerHTML = `player score: ${playerScore} | computer score: ${computerScore}`;
+
+        if (playerScore < 5 && computerScore < 5) {
+            return;
+        } else {
+            endGame();
+        }
     })
 })
 
-// FUNCTION TO PLAY A ROUND UNTIL THE PLAYER OR COMPUTER HAS 5 WINS, THEN CALLS FOR THE ENDGAME-
-// -FUNCTION ONCE THE PLAYER OR COMPUTER HAS HIT 5 WINS
-function game() {
-    playRound(playerSelection, computerSelection);
-    if (playerScore < 5 && computerScore < 5) {
-        game();
-     } else {
-         endGame();
-     }
-}
 
-// FUNCTION THAT STATES WHETHER YOU WON OR LOST THE GAME
+
 function endGame() {
     if (playerScore > computerScore) {
-    console.log('you win! (:') 
+    document.getElementById('results').innerHTML = 'you win!';
     } else if (computerScore > playerScore) {
-    console.log('you lose! ):');
+    document.getElementById('results').innerHTML = 'you lose!';
     }
 }
-
-// game();
