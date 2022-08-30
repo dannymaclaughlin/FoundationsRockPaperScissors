@@ -10,6 +10,7 @@ html {
 
 .header {
     text-align: center;
+    padding-top: 3em;
     /* border: 2px solid red; */
 }
 
@@ -30,3 +31,6 @@ p {
     column-gap: 15px;
 }
 
+.score {
+    padding-top: 30em;
+}
