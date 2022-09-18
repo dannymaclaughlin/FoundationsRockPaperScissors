@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>rock paper scissors</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,17 +16,29 @@
         </div>
         
         <div id="score">
-            <p>make selection to start game...</p>
-            <div id="roundScore"></div>
+            
+            <div id="roundScore">
+                <p class="fit margins">player score: 0 | computer score: 0</p>
+            </div>
         </div>
 
+        <p class="gameInstructions">make selection to start game...</p>
         <div class="buttonGroup">
-            <button class="buttons" id="rock">rock</button>
-            <button class="buttons" id="paper">paper</button>
-            <button class="buttons" id="scissors">scissors</button>
+            
+            <button class="buttons" id="rock"><img src="photos/rock.jpg"></button>
+            <button class="buttons" id="paper"><img src="photos/paper.jpg"></button>
+            <button class="buttons" id="scissors"><img src="photos/scissors.jpg"> </button>
         </div>
 
-        <div id="results"></div>  
+        <div id="results">
+            <div id="resultsMessage"></div>
+            <div class="rematchGroup">
+                <!-- <img src="photos/rematch.jpg"> -->
+                <br>
+                <img class="hidden" src="photos/rematch.jpg">
+                <button class="buttons hidden" id="reloadPage">rematch?</button>  
+            </div>
+        </div>
     </div>
     
     
