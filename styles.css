@@ -28,6 +28,10 @@ p {
     color: white;
 }
 
+.buttons img:hover {
+    transform: scale(1.12)
+}
+
 .buttonGroup {
     display: flex;
     justify-content: center;
@@ -113,3 +117,4 @@ p {
 .hiddenRematchButton {
     font-size: 40.3px;
 }
+
