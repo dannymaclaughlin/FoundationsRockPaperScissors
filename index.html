@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="bodyContainer">
+    <div class="bodyContainer" id="bodyContainer">
         <div class="header">
             <h1>rock paper scissors</h1>
             <p>first to 5</p>
@@ -32,15 +32,17 @@
 
         <div id="results">
             <div id="resultsMessage"></div>
-            <div class="rematchGroup">
-                <!-- <img src="photos/rematch.jpg"> -->
-                <br>
-                <img class="hidden" src="photos/rematch.jpg">
-                <button class="buttons hidden" id="reloadPage">rematch?</button>  
-            </div>
+            
         </div>
     </div>
-    
+    <div class="rematchGroup">
+        <!-- <img src="photos/rematch.jpg"> -->
+        <div class="rematchSet">
+           <img class="hiddenRematchPhoto" src="photos/rematch.jpg">
+            <!-- <br> -->
+            <button class="buttons hiddenRematchButton" id="reloadPage">rematch?</button>   
+        </div>
+    </div>
     
 
     <script src="index.js"></script>

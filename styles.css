@@ -3,8 +3,8 @@
 }
 
 html {
-    background: grey;
-    /* background: black; */
+    /* background: grey; */
+    background: black;
     font-family: helvetica, arial, sans-serif;
     color: white;
 }
@@ -85,4 +85,31 @@ p {
 
 .hide {
     display: none;
+}
+
+.rematchSet {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    
+    width: 400px;
+}
+
+/* .hiddenRematchPhoto {
+    width: 200px;
+} */
+
+.gameOverText {
+    font-size: 50px;
+    text-align: center;
+}
+
+.bodyContainer {
+    text-align: center;
+}
+
+.hiddenRematchButton {
+    font-size: 40.3px;
 }

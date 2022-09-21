@@ -12,7 +12,9 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const reloadPage = document.querySelector('#reloadPage');
 
-const rematchButton = document.querySelector('.hidden');
+const rematchPhoto = document.querySelector('.hiddenRematchPhoto');
+rematchPhoto.classList.add('hide');
+const rematchButton = document.querySelector('.hiddenRematchButton');
 rematchButton.classList.add('hide');
 
 // FUNCTION TO SELECT ONE OF THE CHOICES ARRAYS AT RANDOM
@@ -97,10 +99,14 @@ function playGame() {
 // FUNCTION THAT DISPLAYS GAME OVER MESSAGE WHEN RAN
 function endGame() {
     if (playerScore > computerScore) {
-    document.getElementById('resultsMessage').innerHTML = 'GAME OVER <BR> you win! you\'ve beat the computer to 5 wins.';
+    // document.getElementById('bodyContainer').innerHTML = 'GAME OVER <BR> you win! you\'ve beat the computer to 5 wins.';
+    document.getElementById('bodyContainer').innerHTML = "<span class='gameOverText'>GAME OVER <BR> you win! you\'ve beat the computer to 5 wins.</span>";
+    rematchPhoto.classList.remove('hide');
     rematchButton.classList.remove('hide');
     } else if (computerScore > playerScore) {
-    document.getElementById('resultsMessage').innerHTML = 'GAME OVER <BR> you lose! the computer has beat you to 5 wins';
+    // document.getElementById('bodyContainer').innerHTML = 'GAME OVER <BR> you lose! the computer has beat you to 5 wins';
+    document.getElementById('bodyContainer').innerHTML = "<span class='gameOverText'>GAME OVER <BR> you lose! the computer has beat you to 5 wins.</span>";
+    rematchPhoto.classList.remove('hide');
     rematchButton.classList.remove('hide');
     }
 }
