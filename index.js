@@ -76,13 +76,6 @@ function playGame() {
     computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
 
-    
-
-    // const results = document.getElementById('results');
-    // const resultsContent = document.createElement('div');
-    // resultsContent.textContent = roundResult;
-    // results.appendChild(resultsContent);
-
     const score = document.getElementById('roundScore');
     document.getElementById('roundScore').innerHTML = `player score: ${playerScore} | computer score: ${computerScore}`;
 
@@ -90,21 +83,16 @@ function playGame() {
         return;
     } else if (playerScore === 5 || computerScore === 5) {
         endGame();
-    } else if (playerScore === 6 || computerScore === 6) {
-        // location.reload();
-        endGame();
     }
 }
 
 // FUNCTION THAT DISPLAYS GAME OVER MESSAGE WHEN RAN
 function endGame() {
     if (playerScore > computerScore) {
-    // document.getElementById('bodyContainer').innerHTML = 'GAME OVER <BR> you win! you\'ve beat the computer to 5 wins.';
     document.getElementById('bodyContainer').innerHTML = "<span class='gameOverText'>GAME OVER <BR> you win! you\'ve beat the computer to 5 wins.</span>";
     rematchPhoto.classList.remove('hide');
     rematchButton.classList.remove('hide');
     } else if (computerScore > playerScore) {
-    // document.getElementById('bodyContainer').innerHTML = 'GAME OVER <BR> you lose! the computer has beat you to 5 wins';
     document.getElementById('bodyContainer').innerHTML = "<span class='gameOverText'>GAME OVER <BR> you lose! the computer has beat you to 5 wins.</span>";
     rematchPhoto.classList.remove('hide');
     rematchButton.classList.remove('hide');
@@ -114,46 +102,3 @@ function endGame() {
 function rematch() {
     location.reload();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// EXTRA CODE THAT IS NOT NEEDED BUT IS AN EXAMPLE OF HOW TO RUN THE FOREACH FUNCTION
-
-// let buttonText = '';
-
-// const buttons = document.querySelectorAll('button');
-
-// buttons.forEach((button) => {
-//     button.addEventListener('click', () => {
-//         let buttonText = button.textContent;
-//         let playerSelection = buttonText;
-//         let computerSelection = computerPlay();
-
-//         const results = document.getElementById('results');
-//         const resultsContent = document.createElement('div');
-//         resultsContent.classList.add('resultsSummary');
-//         resultsContent.textContent = playRound(playerSelection, computerSelection);
-//         results.appendChild(resultsContent);
-
-//         const score = document.getElementById('score');
-//         document.getElementById('score').innerHTML = `player score: ${playerScore} | computer score: ${computerScore}`;
-
-        // if (playerScore < 5 && computerScore < 5) {
-        //     return;
-        // } else {
-        //     endGame();
-        // }
-//     })
-// })
