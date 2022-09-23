@@ -7,5 +7,5 @@ Play against the computer in a game of rock, paper, scissors as part of The Odin
 
 What I have benefited from completing this project:
 
-- I have a deeper understanding of Javascript functions
-- Put to practive and gained experience using DOM manipulation and event listeners
+- Gained a deeper understanding of Javascript functions
+- Put to practice and gained experience using DOM manipulation and event listeners
